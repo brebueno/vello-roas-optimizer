@@ -1,24 +1,30 @@
 
 import { CalculatorResults, formatCurrency, formatPercentage } from "@/utils/calculator";
 import { FadeIn } from "../Animations/FadeIn";
+import { InputField } from "./InputField";
 
 interface ResultsDisplayProps {
   results: CalculatorResults;
+  onEbitdaChange: (value: number) => void;
+  ebitdaValue: number;
 }
 
-export const ResultsDisplay = ({ results }: ResultsDisplayProps) => {
+export const ResultsDisplay = ({ results, onEbitdaChange, ebitdaValue }: ResultsDisplayProps) => {
   return (
     <FadeIn delay={300} className="mb-6">
       <div className="section-container bg-section-results">
         <h2 className="section-title mb-4">Resultados</h2>
         
         <div className="grid grid-cols-2 gap-4">
-          <div>
-            <h3 className="input-label">EBITDA</h3>
-            <p className={`result-display ${results.ebitda >= 0 ? "result-positive" : "result-negative"}`}>
-              {formatCurrency(results.ebitda)}
-            </p>
-          </div>
+          <InputField
+            id="ebitda"
+            label="EBITDA"
+            type="currency"
+            value={ebitdaValue}
+            onChange={onEbitdaChange}
+            prefix="R$"
+            className="mb-1"
+          />
           
           <div>
             <h3 className="input-label">EBITDA %</h3>

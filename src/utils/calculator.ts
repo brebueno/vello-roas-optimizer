@@ -22,6 +22,9 @@ export interface CalculatorData {
   condominium: number;
   electricity: number;
   otherCosts: number;
+  
+  // Results
+  ebitda: number;
 }
 
 export interface CalculatorResults {
@@ -73,7 +76,7 @@ export const calculate = (data: CalculatorData): CalculatorResults => {
   const fixedCostsPercentage = (totalFixedCosts / data.revenue) * 100 || 0;
   
   // Results
-  const ebitda = contributionMargin - totalFixedCosts;
+  const ebitda = data.ebitda !== undefined ? data.ebitda : contributionMargin - totalFixedCosts;
   const ebitdaPercentage = (ebitda / data.revenue) * 100 || 0;
   
   return {

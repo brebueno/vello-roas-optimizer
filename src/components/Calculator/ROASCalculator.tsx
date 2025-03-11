@@ -29,6 +29,9 @@ export const ROASCalculator = () => {
     condominium: 0,
     electricity: 0,
     otherCosts: 0,
+    
+    // Results
+    ebitda: 0
   });
   
   const [results, setResults] = useState(calculate(formData));
@@ -36,6 +39,11 @@ export const ROASCalculator = () => {
   useEffect(() => {
     const newResults = calculate(formData);
     setResults(newResults);
+    
+    // Update the EBITDA in formData if it's not been manually set
+    if (formData.ebitda === 0) {
+      setFormData(prev => ({...prev, ebitda: newResults.ebitda}));
+    }
   }, [formData]);
   
   const updateField = (field: keyof CalculatorData, value: number) => {
@@ -315,7 +323,11 @@ export const ROASCalculator = () => {
           </InputSection>
           
           {/* Results */}
-          <ResultsDisplay results={results} />
+          <ResultsDisplay 
+            results={results} 
+            onEbitdaChange={(value) => updateField("ebitda", value)} 
+            ebitdaValue={formData.ebitda} 
+          />
         </div>
       </div>
     </div>
