@@ -25,6 +25,7 @@ export interface CalculatorData {
   
   // Results
   ebitda: number;
+  targetEbitdaPercentage: number;
 }
 
 export interface CalculatorResults {
@@ -51,6 +52,10 @@ export interface CalculatorResults {
   // Results
   ebitda: number;
   ebitdaPercentage: number;
+  
+  // Minimum Requirements
+  minimumRevenue: number;
+  idealRoas: number;
 }
 
 export const calculate = (data: CalculatorData): CalculatorResults => {
@@ -79,6 +84,25 @@ export const calculate = (data: CalculatorData): CalculatorResults => {
   const ebitda = data.ebitda !== undefined ? data.ebitda : contributionMargin - totalFixedCosts;
   const ebitdaPercentage = (ebitda / data.revenue) * 100 || 0;
   
+  // Calculate minimum revenue needed to achieve target EBITDA percentage
+  const targetEbitdaPercentage = data.targetEbitdaPercentage || 10; // Default to 10% if not specified
+  
+  // Calculate variable cost rate (as a decimal)
+  const variableCostRate = variableCostsPercentage / 100;
+  
+  // Calculate contribution margin rate (as a decimal)
+  const contributionMarginRate = 1 - variableCostRate;
+  
+  // Calculate the minimum revenue needed to cover fixed costs and achieve target EBITDA
+  // Formula: Revenue = (Fixed Costs + Target EBITDA) / Contribution Margin Rate
+  // Where Target EBITDA = Revenue * Target EBITDA Percentage
+  // So: Revenue = Fixed Costs / (Contribution Margin Rate - Target EBITDA Percentage/100)
+  
+  const minimumRevenue = totalFixedCosts / (contributionMarginRate - (targetEbitdaPercentage / 100));
+  
+  // Calculate the ideal ROAS based on minimum revenue and investment value
+  const idealRoas = minimumRevenue / data.investmentValue || 0;
+  
   return {
     roas,
     shippingCost,
@@ -93,7 +117,9 @@ export const calculate = (data: CalculatorData): CalculatorResults => {
     totalFixedCosts,
     fixedCostsPercentage,
     ebitda,
-    ebitdaPercentage
+    ebitdaPercentage,
+    minimumRevenue,
+    idealRoas
   };
 };
 

@@ -1,12 +1,12 @@
 
+import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/Animations/FadeIn";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 
 const Tutorial = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-vello-blue to-vello-blue/90 text-vello-dark-gray">
-      <div className="container py-8 md:py-12 px-4 max-w-5xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-vello-blue to-vello-blue/90 text-white">
+      <div className="container py-8 md:py-12">
         <FadeIn className="text-center mb-8">
           <div className="inline-block rounded-xl bg-white/90 backdrop-blur-sm shadow-soft px-6 py-4 mb-6">
             <div className="flex items-center justify-center mb-3">
@@ -17,143 +17,91 @@ const Tutorial = () => {
               />
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-vello-blue">
-              <span className="text-vello-orange">Tutorial</span> da Calculadora
+              Tutorial da <span className="text-vello-orange">Calculadora ROAS</span>
             </h1>
-            <p className="text-vello-dark-gray mt-2">
-              Aprenda a utilizar a calculadora ROAS para maximizar seus resultados
-            </p>
           </div>
         </FadeIn>
         
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-soft mb-10">
-          <FadeIn delay={100}>
-            <h2 className="text-2xl font-semibold text-vello-blue mb-4">Vídeo Explicativo</h2>
-            <div className="aspect-video bg-black rounded-lg overflow-hidden mb-6">
-              <iframe 
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/i1XUTocduE8" 
-                title="Tutorial da Calculadora ROAS" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 className="text-2xl font-bold text-vello-blue mb-4">Vídeo Tutorial</h2>
+            <div className="aspect-w-16 aspect-h-9 mb-6">
+              <iframe
+                className="w-full h-96 rounded-lg"
+                src="https://www.youtube.com/embed/i1XUTocduE8"
+                title="Tutorial da Calculadora ROAS"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
             </div>
-            <p className="text-vello-dark-gray mb-4">
-              Este vídeo explica detalhadamente como utilizar a Calculadora ROAS para obter os melhores resultados
-              para o seu negócio.
-            </p>
-          </FadeIn>
-        </div>
-        
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-soft mb-10">
-          <FadeIn delay={200}>
-            <h2 className="text-2xl font-semibold text-vello-blue mb-4">Glossário de Termos</h2>
+          </div>
+          
+          <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 className="text-2xl font-bold text-vello-blue mb-4">Glossário</h2>
             
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border border-gray-100 rounded-lg p-4 bg-white shadow-sm">
-                <h3 className="font-medium text-vello-blue mb-2">ROAS</h3>
-                <p className="text-sm text-vello-dark-gray">
-                  <strong>Return On Ad Spend</strong> - Métrica que mede o retorno gerado para cada real investido em publicidade.
-                  Um ROAS de 3 significa que para cada R$1 investido, você obteve R$3 em receita.
-                </p>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-semibold text-vello-orange">ROAS</h3>
+                <p className="text-vello-dark-gray">Return On Ad Spend (Retorno sobre Investimento em Publicidade) - É a métrica que indica quantos reais você ganha para cada real investido em publicidade. Um ROAS de 3 significa que para cada R$1 investido, você recebeu R$3 em receita.</p>
               </div>
               
-              <div className="border border-gray-100 rounded-lg p-4 bg-white shadow-sm">
-                <h3 className="font-medium text-vello-blue mb-2">EBITDA</h3>
-                <p className="text-sm text-vello-dark-gray">
-                  <strong>Earnings Before Interest, Taxes, Depreciation and Amortization</strong> - Representa o lucro operacional
-                  antes dos juros, impostos, depreciação e amortização. Indica a eficiência e performance operacional da empresa.
-                </p>
+              <div>
+                <h3 className="text-xl font-semibold text-vello-orange">ROAS Ideal</h3>
+                <p className="text-vello-dark-gray">O ROAS necessário para atingir o faturamento mínimo que cobrirá todos os custos e garantirá o EBITDA alvo desejado, considerando o investimento atual em publicidade.</p>
               </div>
               
-              <div className="border border-gray-100 rounded-lg p-4 bg-white shadow-sm">
-                <h3 className="font-medium text-vello-blue mb-2">Percentual de Investimento</h3>
-                <p className="text-sm text-vello-dark-gray">
-                  Representa quanto do seu faturamento está sendo investido em publicidade. 
-                  É calculado dividindo o valor investido pelo faturamento total.
-                </p>
+              <div>
+                <h3 className="text-xl font-semibold text-vello-orange">Faturamento Mínimo</h3>
+                <p className="text-vello-dark-gray">O valor mínimo de vendas necessário para cobrir todos os custos fixos e variáveis e ainda alcançar o EBITDA alvo definido. É calculado com base na estrutura de custos e na margem de contribuição do seu negócio.</p>
               </div>
               
-              <div className="border border-gray-100 rounded-lg p-4 bg-white shadow-sm">
-                <h3 className="font-medium text-vello-blue mb-2">Margem de Contribuição</h3>
-                <p className="text-sm text-vello-dark-gray">
-                  Valor que resta do preço de venda após subtrair os custos variáveis. Representa quanto cada venda 
-                  contribui para cobrir os custos fixos e gerar lucro.
-                </p>
+              <div>
+                <h3 className="text-xl font-semibold text-vello-orange">Percentual de Investimento</h3>
+                <p className="text-vello-dark-gray">O percentual do faturamento que é destinado para investimento em publicidade. É calculado dividindo o valor investido pelo faturamento total.</p>
               </div>
               
-              <div className="border border-gray-100 rounded-lg p-4 bg-white shadow-sm">
-                <h3 className="font-medium text-vello-blue mb-2">Markup</h3>
-                <p className="text-sm text-vello-dark-gray">
-                  Valor adicionado ao custo de um produto para determinar seu preço de venda.
-                  Representa a diferença entre o custo do produto e seu preço final.
-                </p>
+              <div>
+                <h3 className="text-xl font-semibold text-vello-orange">EBITDA</h3>
+                <p className="text-vello-dark-gray">Earnings Before Interest, Taxes, Depreciation and Amortization (Lucro antes de Juros, Impostos, Depreciação e Amortização) - Representa o lucro operacional do seu negócio antes de descontar os custos financeiros e impostos sobre o lucro.</p>
               </div>
               
-              <div className="border border-gray-100 rounded-lg p-4 bg-white shadow-sm">
-                <h3 className="font-medium text-vello-blue mb-2">Custos Fixos</h3>
-                <p className="text-sm text-vello-dark-gray">
-                  Despesas que permanecem inalteradas independentemente do volume de vendas,
-                  como aluguel, salários, e assinaturas de softwares.
-                </p>
+              <div>
+                <h3 className="text-xl font-semibold text-vello-orange">EBITDA Alvo</h3>
+                <p className="text-vello-dark-gray">O percentual de EBITDA que você deseja atingir como meta para o seu negócio. Este valor é usado para calcular o faturamento mínimo necessário e o ROAS ideal.</p>
               </div>
               
-              <div className="border border-gray-100 rounded-lg p-4 bg-white shadow-sm">
-                <h3 className="font-medium text-vello-blue mb-2">Custos Variáveis</h3>
-                <p className="text-sm text-vello-dark-gray">
-                  Despesas que mudam de acordo com o volume de vendas, como frete, 
-                  comissões e taxas de processamento de pagamentos.
-                </p>
+              <div>
+                <h3 className="text-xl font-semibold text-vello-orange">Margem de Contribuição</h3>
+                <p className="text-vello-dark-gray">É o valor que sobra do faturamento depois de descontar todos os custos variáveis. Representa quanto cada venda contribui para cobrir os custos fixos e gerar lucro.</p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold text-vello-orange">Custos Variáveis</h3>
+                <p className="text-vello-dark-gray">São custos que variam proporcionalmente ao volume de vendas, como frete, impostos, taxas de marketplace, taxas de cartão, etc.</p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold text-vello-orange">Custos Fixos</h3>
+                <p className="text-vello-dark-gray">São custos que não dependem do volume de vendas e permanecem constantes independentemente do faturamento, como aluguel, salários da equipe, plataformas, etc.</p>
               </div>
             </div>
-          </FadeIn>
+          </div>
+          
+          <div className="flex justify-center gap-4">
+            <Link to="/">
+              <Button variant="outline" className="bg-white text-vello-blue hover:bg-white/80">
+                Voltar para Início
+              </Button>
+            </Link>
+            <Link to="/calculator">
+              <Button className="bg-vello-orange text-white hover:bg-vello-orange/80">
+                Ir para Calculadora
+              </Button>
+            </Link>
+          </div>
         </div>
         
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-soft mb-10">
-          <FadeIn delay={300}>
-            <h2 className="text-2xl font-semibold text-vello-blue mb-4">Como Usar a Calculadora</h2>
-            
-            <ol className="list-decimal pl-6 space-y-4 mb-6">
-              <li className="text-vello-dark-gray">
-                <strong>Preencha os dados de investimento</strong>: Insira o valor investido em publicidade 
-                e a calculadora mostrará automaticamente o percentual sobre o faturamento.
-              </li>
-              <li className="text-vello-dark-gray">
-                <strong>Insira o faturamento real</strong>: Adicione o valor total de vendas realizadas no período analisado.
-              </li>
-              <li className="text-vello-dark-gray">
-                <strong>Preencha os custos variáveis</strong>: Insira os percentuais ou valores de custos que 
-                variam de acordo com as vendas (frete, impostos, taxas, etc).
-              </li>
-              <li className="text-vello-dark-gray">
-                <strong>Adicione os custos fixos</strong>: Coloque todos os custos que não dependem do volume de vendas.
-              </li>
-              <li className="text-vello-dark-gray">
-                <strong>Analise os resultados</strong>: Verifique o ROAS final e o EBITDA para 
-                avaliar a eficiência do seu investimento em publicidade.
-              </li>
-            </ol>
-            
-            <div className="bg-vello-blue/10 p-4 rounded-lg mb-6">
-              <h3 className="font-medium text-vello-blue mb-2">Dica Importante</h3>
-              <p className="text-sm text-vello-dark-gray">
-                Um ROAS saudável geralmente deve ser acima de 3, indicando que para cada real investido, 
-                você obtém 3 reais em receita. Se seu ROAS estiver abaixo de 2, considere revisar sua 
-                estratégia de publicidade para melhorar a eficiência dos seus investimentos.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-        
-        <FadeIn delay={400} className="flex justify-center mt-8 mb-10">
-          <Link to="/calculator">
-            <Button className="bg-vello-orange text-white hover:bg-vello-orange/90 px-6 py-6 h-auto text-lg">
-              Ir para a Calculadora
-            </Button>
-          </Link>
-        </FadeIn>
-        
-        <FadeIn delay={500} className="text-center mt-8 text-white/80 text-sm">
+        <FadeIn delay={700} className="text-center mt-8 text-white/80 text-sm">
           <p>© 2023 Vello. Todos os direitos reservados.</p>
         </FadeIn>
       </div>

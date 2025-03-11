@@ -31,7 +31,8 @@ export const ROASCalculator = () => {
     otherCosts: 0,
     
     // Results
-    ebitda: 0
+    ebitda: 0,
+    targetEbitdaPercentage: 10 // Default target of 10%
   });
   
   const [results, setResults] = useState(calculate(formData));
@@ -327,6 +328,8 @@ export const ROASCalculator = () => {
             results={results} 
             onEbitdaChange={(value) => updateField("ebitda", value)} 
             ebitdaValue={formData.ebitda} 
+            onTargetEbitdaPercentageChange={(value) => updateField("targetEbitdaPercentage", value)}
+            targetEbitdaPercentage={formData.targetEbitdaPercentage}
           />
         </div>
       </div>
